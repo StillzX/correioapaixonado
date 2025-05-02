@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer o Pedido</title>
+
+    <!--icon-->
+    <link rel="shortcut icon" href="asset/images/icon_web.png" type="image/png">
+
+    <!--css bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--font import-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!--css import-->
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+
+<body>
+
+    <!-- modal de resumo do pedido -->
+    <div class="modal" tabindex="-1" id="modalSendRequest">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Resumo do pedido</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="fs-6">Confirme as informações do seu pedido:</p>
+                <p id="modal-nameclient">Seu nome: ...</p>
+                <p id="modal-nameconsignee">Nome do destinatário: ...</p>
+                <p id="modal-classconsignee">Sala do destinatário: ...</p>
+                <p id="modal-anonymous">Anonimato?: ...</p>
+                <p id="modal-typemessage">Tipo de mensagem: ...</p>
+                <p id="modal-writemode">Modo de escrita: ...</p>
+                <p id="modal-mymessage">Mensagem personalizada: ...</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success">Enviar meu pedido</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <header class="d-flex flex-column align-items-center bg-pink text-white text-center py-5">
+        <div class="d-flex align-items-center justify-content-center">
+
+            <div class="row">
+                <div class="col d-flex flex-column">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <img src="asset/images/icon_web.png" alt="logo-website" class="img-logo">
+                    <h1 class="fw-bold">Faça seu pedido</h1>
+                  </div>
+                  <p class="lead">“Declare, zoe ou se queime — no amor e na vergonha, a gente entrega!”</p>
+                </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section>
+        </section>
+
+
+        <section>
+            <h2 class="text-magenta mb-4 text-center fw-bold">Envie seu Correio Elegante!</h2>
+            <p class="lead text-center">Preencha as informações solicitadas para enviar-nos o seu pedido.</p>
+            <form id="correioForm" class="row">
+                <div class="row">
+                    <div class="col-md-6 mt-3">
+                        <label for="nomeRemetente" class="form-label text-magenta">Seu nome:</label>
+                        <input type="text" class="form-control" id="nomeRemetente" required placeholder="Ex: João">
+                    </div>
+    
+                    <div class="col-md-6 mt-3">
+                        <label for="nomeAlvo" class="form-label text-magenta">Nome do destinatário:</label>
+                        <input type="text" class="form-control" id="nomeAlvo" required placeholder="Ex: Natália">
+                    </div>
+    
+                    <div class="col-md-6 mt-3">
+                        <label for="sala" class="form-label text-magenta">Sala do destinatário:</label>
+                        <input type="text" class="form-control" id="sala" required placeholder="Ex: 3ºA">
+                    </div>
+    
+                    <div class="col-md-6 mt-3">
+                        <label class="form-label text-magenta">Você quer anonimato?</label>
+                        <select class="form-select" id="anonimato">
+                            <option value="sim">Anônimo (+ R$3,00)</option>
+                            <option value="nao">Sem anonimato</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label class="form-label text-magenta">Qual é o tipo de mensagem?</label>
+                        <select class="form-select" id="tipoMensagemEstilo">
+                            <option value="sim">Líricas (Amor no ar)</option>
+                            <option value="nao">Satíricas (Zueira total)</option>
+                        </select>
+                    </div>
+                      <div class="col-md-6 mt-3">
+                        <label class="form-label text-magenta">Escolha o modo de escrita da mensagem: </label>
+                        <select class="form-select" id="tipoMensagem" onchange="toggleMensagemPersonalizada()">
+                            <option value="padrao">Mensagem feita pela equipe do Correio Elegante</option>
+                            <option value="personalizada">Quero escrever minha mensagem</option>
+                        </select>
+                </div>
+            </form>
+
+                <div class="col-12" id="mensagemPersonalizadaDiv" style="display: none;">
+                    <label for="mensagemPersonalizada" class="form-label text-magenta mt-3">Escreva sua mensagem:</label>
+                    <textarea class="form-control" id="mensagemPersonalizada" rows="4" placeholder='Ex: "Oi, amor! 💌 Só queria lembrar que te amo mais do que pizza (e olha que isso é sério). Se você aguentou meus dramas até aqui, parabéns: já ganhou o prêmio de melhor namorado(a) do mundo. Feliz Dia dos Namorados! PS: desculpa por roubar o cobertor toda noite. 😅"'></textarea>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalSendRequest" class="btn btn-success btn-lg mt-5 btn-neon-whats" onclick="enviarWhats()">
+                        Enviar via WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                            class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--js base import-->
+  <script src="asset/js/script.js"></script>
+</body>

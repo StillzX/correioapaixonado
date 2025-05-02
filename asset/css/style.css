@@ -1,0 +1,67 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Montserrat', sans-serif;
+    background: #fff0f5;
+}
+
+.bg-pink {
+    background-color: #ff69b4 !important;
+}
+
+.text-magenta {
+    color: #c71585;
+}
+
+.divider {
+    border-top: 2px dashed #c71585;
+    margin: 3rem 0;
+}
+
+.img-logo {
+    width: 35px;
+}
+
+.player-wrapper {
+    max-width: 800px;
+    margin: auto;
+}
+
+.btn-neon {
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    background-color: red !important;
+    color: white !important;
+    box-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+}
+
+video {
+    width: 100%;
+}
+
+.botao-fixo {
+    padding: 7px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1030;
+    transition: all 0.3s ease;
+}
+
+.botao-fixo:hover {
+    background-color: rgb(0, 196, 104) !important;
+    color: white !important;
+    box-shadow: 0 0 5px rgb(0, 182, 97), 0 0 10px rgb(0, 182, 97), 0 0 20px rgb(0, 182, 97);
+}
+
+.btn-neon-whats {
+    transition: all 0.3s ease;
+}
+
+.btn-neon-whats:hover {
+    background-color: rgb(0, 196, 104) !important;
+    color: white !important;
+    box-shadow: 0 0 5px rgb(0, 182, 97), 0 0 10px rgb(0, 182, 97), 0 0 20px rgb(0, 182, 97);
+}

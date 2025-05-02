@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Correio Elegante do Terceirão</title>
+
+  <!--icon-->
+  <link rel="shortcut icon" href="asset/images/icon_web.png" type="image/png">
+
+  <!--css bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--font import-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!--css import-->
+  <link rel="stylesheet" href="asset/css/style.css">
+
+  <!-- Estilos do Plyr -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+
+<body>
+  <header class="d-flex justify-content-center align-items-center gap-3 bg-pink text-white text-center py-5">
+
+    <div class="row">
+      <div class="col d-flex flex-column">
+        <div class="d-flex align-items-center justify-content-center">
+          <img src="asset/images/icon_web.png" alt="logo-website" class="img-logo">
+          <h1 class="fw-bold">Correio Elegante</h1>
+        </div>
+        <p class="lead">“Declare, zoe ou se queime — no amor e na vergonha, a gente entrega!”</p>
+      </div>
+  
+      <div class="col-12 col-lg-3">
+        <a href="pedidos.html" class="btn btn-light btn-lg btn-neon">Quero fazer meu pedido agora! ❤</a>
+      </div>
+    </div>
+
+  </header>
+
+  <a href="#" class="btn btn-success botao-fixo rounded-circle" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-whatsapp" viewBox="0 0 16 16"> <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+    </svg>
+  </a>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Enviar uma dúvida</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Seu nome:</label>
+              <input type="text" class="form-control" id="recipient-name" placeholder="Ex: João">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Descreva sua dúvida detalhadamente</label>
+              <textarea class="form-control" id="message-text" placeholder="Ex: Gostaria de saber como fazer meu pedido"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="enviarWhatsDuvida()">Enviar mensagem</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container my-5">
+    <section>
+      <h2 class="text-magenta">Apresentação</h2>
+      <p><strong>CORREIO ELEGANTE – Cantigas Líricas e Satíricas</strong></p>
+      <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+        <p class="lead">Assita ao vídeo e leia as informações abaixo para compreender melhor</p>
+        
+        <div class="player-wrapper">
+          <video id="player" controls crossorigin playsinline>
+            <source src="asset/videos/video_promocional.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <p>Neste Dia dos Namorados, o cupido perdeu a flecha e pegou o megafone! No <span class="fw-bold bg-magenta">dia
+          12</span> de junho, o Arthur e seu grupo de mensageiros vão invadir as salas recitando mensagens apaixonadas,
+        engraçadas ou constrangedoras no maior estilo “correio da vergonha”!</p>
+      <p>Seja para declarar um amor secreto, mandar aquela indireta com classe, ou simplesmente fazer alguém corar de
+        vergonha, nós somos o seu canal oficial.</p>
+
+      <h2 class="text-magenta">Informações aos participantes</h2>
+      <p class="fw-bold text-magenta">Envie sua mensagem até o dia 11 de junho!</p>
+      <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-heart" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1m7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+          </svg>
+          A entrega das mensagens será no dia 12 de Junho (Dia dos namorados)
+        </li>
+        <li class="list-group-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+            <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
+          </svg>
+          Valor: R$ 5,00
+        </li>
+        <li class="list-group-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-incognito" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="m4.736 1.968-.892 3.269-.014.058C2.113 5.568 1 6.006 1 6.5 1 7.328 4.134 8 8 8s7-.672 7-1.5c0-.494-1.113-.932-2.83-1.205l-.014-.058-.892-3.27c-.146-.533-.698-.849-1.239-.734C9.411 1.363 8.62 1.5 8 1.5s-1.411-.136-2.025-.267c-.541-.115-1.093.2-1.239.735m.015 3.867a.25.25 0 0 1 .274-.224c.9.092 1.91.143 2.975.143a30 30 0 0 0 2.975-.143.25.25 0 0 1 .05.498c-.918.093-1.944.145-3.025.145s-2.107-.052-3.025-.145a.25.25 0 0 1-.224-.274M3.5 10h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5m-1.5.5q.001-.264.085-.5H2a.5.5 0 0 1 0-1h3.5a1.5 1.5 0 0 1 1.488 1.312 3.5 3.5 0 0 1 2.024 0A1.5 1.5 0 0 1 10.5 9H14a.5.5 0 0 1 0 1h-.085q.084.236.085.5v1a2.5 2.5 0 0 1-5 0v-.14l-.21-.07a2.5 2.5 0 0 0-1.58 0l-.21.07v.14a2.5 2.5 0 0 1-5 0zm8.5-.5h2a.5.5 0 0 1 .5.5v1a1.5 1.5 0 0 1-3 0v-1a.5.5 0 0 1 .5-.5"/>
+          </svg>
+          Quer mandar de forma anônima? + R$ 3,00
+        </li>
+        <li class="list-group-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-through-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l3.103-3.104a.5.5 0 1 1 .708.708L4.5 12.207V14a.5.5 0 0 1-.146.354zM16 3.5a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182A24 24 0 0 1 5.8 12.323L8.31 9.81a1.5 1.5 0 0 0-2.122-2.122L3.657 10.22a9 9 0 0 1-1.039-1.57c-.798-1.576-.775-2.997-.213-4.093C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5z"/>
+          </svg>
+          Quer descobrir quem mandou pra você? + R$ 2,00
+        </li>
+      </ul>
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-arrow-up" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.5a.5.5 0 0 1-1 0V5.383l-7 4.2-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-1.99zm1 7.105 4.708-2.897L1 5.383zM1 4v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/>
+          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.354-5.354 1.25 1.25a.5.5 0 0 1-.708.708L13 12.207V14a.5.5 0 0 1-1 0v-1.717l-.28.305a.5.5 0 0 1-.737-.676l1.149-1.25a.5.5 0 0 1 .722-.016"/>
+        </svg>
+        <strong>Para o remetente (Quem envia a mensagem):</strong><br>
+        Pagou os R$3,00 pelo anonimato? Então relaxa, porque seu segredinho tá mais guardado que carta de amor no fundo da gaveta — <strong>ninguém vai saber que foi você!</strong> 💌 Agora, se mandou na coragem (ou na emoção) e <strong>não ativou o modo anônimo…</strong> aí meu bem, se a pessoa pagar os R$2,00, sua identidade será revelada!<br>
+        Muito cuidado em!
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-arrow-down" viewBox="0 0 16 16">
+          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.5a.5.5 0 0 1-1 0V5.383l-7 4.2-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-1.99zm1 7.105 4.708-2.897L1 5.383zM1 4v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1"/>
+          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.354-1.646a.5.5 0 0 1-.722-.016l-1.149-1.25a.5.5 0 1 1 .737-.676l.28.305V11a.5.5 0 0 1 1 0v1.793l.396-.397a.5.5 0 0 1 .708.708z"/>
+        </svg>
+        <strong>Para o destinatário (Quem recebe a mensagem):</strong><br>
+        No ar o clima de romance! 💘 Recebeu uma mensagem misteriosa e tá com aquele friozinho na barriga? <strong>Se ela não for anônima</strong>, você pode descobrir quem é o cupido atrevido por trás das palavras doces… Mas olha, o amor tem seu preço: <strong>R$2,00 pra revelar o(a) crush secreto(a)!</strong><br>
+        Vai encarar esse romance investigativo?
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2 class="text-magenta">Nossos Objetivos</h2>
+      <ul class="list-group list-group-numbered">
+        <li class="list-group-item">Espalhar amor, risadas e um pouquinho de vergonha saudável no clima do Dia dos Namorados.</li>
+        <li class="list-group-item">Dar voz (literalmente) às declarações, zoações e indiretas que merecem ser ouvidas
+          por toda a sala.</li>
+        <li class="list-group-item">Criar um momento inesquecível e divertido, fortalecendo os laços entre os alunos com
+          muito bom humor.</li>
+        <li class="list-group-item">Estimular a criatividade e a participação de todos, promovendo uma experiência única
+          e ousada.</li>
+        <li class="list-group-item">Oferecer um serviço acessível, dinâmico e feito por estudantes para estudantes, com
+          leveza e diversão.</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <div class="texte-center">
+        <h2 class="text-magenta text-center">Envie seu Correio Elegante!</h2>
+        <p class="text-center">Está pronto para revelar seu amor à pessoa amada? Conte conosco! Clique no botão abaixo e efetue seu pedido agora!</p>
+      </div>
+        <div class="col-12 text-center">
+          <a href="pedidos.html" class="btn btn-danger btn-lg btn-neon">
+            Quero fazer meu pedido agora!
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-paper-heart" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.133l.941.502A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765L2 3.133zm0 2.267-.47.25A1 1 0 0 0 1 5.4v.817l1 .6zm1 3.15 3.75 2.25L8 8.917l1.25.75L13 7.417V2a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1zm11-.6 1-.6V5.4a1 1 0 0 0-.53-.882L14 4.267zM8 2.982C9.664 1.309 13.825 4.236 8 8 2.175 4.236 6.336 1.31 8 2.982m7 4.401-4.778 2.867L15 13.117zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734Z"/>
+            </svg>
+          </a>
+        </div>
+      </form>
+    </section>
+
+    <div class="divider"></div>  
+
+    <section>
+      <div>
+        <p class="h2 text-magenta">Perguntas frequentes</p>
+        <p>Talvez você tenha as mesmas dúvidas de:</p>
+      </div>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Como minha mensagem será entregue?
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Prepare-se para a cena mais épica do Dia dos Namorados! Sua mensagem vai ser entregue pelos <strong>nossos cupidos, direto na sala de aula do seu alvo</strong>, com direito a um megafone — é emoção, risada e um toque de drama! 🥰📣 Uma entrega digna de filme romântico… e com certeza vai ser inesquecível!</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Quais são os meios de pagamento aceitos pelo Correio Elegante?
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Quer mandar seu recado de amor? O Correio Elegante aceita <strong>Pix</strong> e, se você for da turma do 'dinheiro na mão', <strong>pode pagar em espécie diretamente na escola</strong>. Ah, e vale lembrar: o amor é belo, <strong>mas fiado, aqui, não rola!</strong> 😉</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Como funciona a opção de anonimato em meu pedido?
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Se você quer um toque de mistério no seu recado de amor, é só selecionar o anonimato no seu pedido! Aí, um <strong>adicional de R$3,00</strong> vai garantir que o destinatário (o crush, no caso) não consiga descobrir quem foi o(a) corajoso(a) que mandou a mensagem. O total fica <strong>R$8,00, e o segredo será seguro!</strong> 💌💫 Agora, se você <strong>não quiser esconder sua identidade</strong>, o valor será <strong>R$5,00</strong>, mas… atenção! <strong>O destinatário vai poder descobrir quem é o(a) romântico(a) por trás da mensagem.</strong> E, cá entre nós, é sempre bom ter um pouco de cuidado com o mistério… ou será que você quer ser desmascarado(a)? 😏</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              Recebi uma mensagem sem anonimato e gostaria de revelar o remetente. E agora?
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Recebeu uma mensagem e está morrendo de curiosidade para saber quem foi o(a) corajoso(a) que se declarou? <strong>Se a mensagem não for anônima</strong>, você pode pedir aos nossos cupidos para revelar o remetente na hora da entrega! 💌 Mas, atenção: essa revelação custa <strong>R$2,00</strong>.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-pink text-white text-center py-3">
+    <p class="mb-0">Feito com amor por Arthur e seus cupidos! ❤</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!--js base import-->
+  <script src="asset/js/script.js"></script>
+
+  <!-- Script do Plyr -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+</body>
+
+</html>
