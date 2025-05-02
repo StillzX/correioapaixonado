@@ -5,10 +5,6 @@ function toggleMensagemPersonalizada() {
   document.getElementById("mensagemPersonalizadaDiv").style.display = tipo === "personalizada" ? "block" : "none";
 }
 
-function displayInfoOnModal() {
-  
-}
-
 function enviarWhats() {
   const nomeRemetente = document.getElementById("nomeRemetente").value;
   const nomeAlvo = document.getElementById("nomeAlvo").value;

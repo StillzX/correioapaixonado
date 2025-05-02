@@ -21,32 +21,6 @@
 
 <body>
 
-    <!-- modal de resumo do pedido -->
-    <div class="modal" tabindex="-1" id="modalSendRequest">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Resumo do pedido</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="fs-6">Confirme as informações do seu pedido:</p>
-                <p id="modal-nameclient">Seu nome: ...</p>
-                <p id="modal-nameconsignee">Nome do destinatário: ...</p>
-                <p id="modal-classconsignee">Sala do destinatário: ...</p>
-                <p id="modal-anonymous">Anonimato?: ...</p>
-                <p id="modal-typemessage">Tipo de mensagem: ...</p>
-                <p id="modal-writemode">Modo de escrita: ...</p>
-                <p id="modal-mymessage">Mensagem personalizada: ...</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-success">Enviar meu pedido</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     <header class="d-flex flex-column align-items-center bg-pink text-white text-center py-5">
         <div class="d-flex align-items-center justify-content-center">
 
@@ -114,7 +88,7 @@
                     <textarea class="form-control" id="mensagemPersonalizada" rows="4" placeholder='Ex: "Oi, amor! 💌 Só queria lembrar que te amo mais do que pizza (e olha que isso é sério). Se você aguentou meus dramas até aqui, parabéns: já ganhou o prêmio de melhor namorado(a) do mundo. Feliz Dia dos Namorados! PS: desculpa por roubar o cobertor toda noite. 😅"'></textarea>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#modalSendRequest" class="btn btn-success btn-lg mt-5 btn-neon-whats" onclick="enviarWhats()">
+                    <button type="button" class="btn btn-success btn-lg mt-5 btn-neon-whats" onclick="enviarWhats()">
                         Enviar via WhatsApp
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                             class="bi bi-whatsapp" viewBox="0 0 16 16">
