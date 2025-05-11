@@ -1,4 +1,6 @@
+// declaração de variáveis
 const DISCORD_WEBHOOK_URL = "https://canary.discord.com/api/webhooks/1363574242859552778/PCf82cKOZdVKp9vknrRc4BEwjroJ7h7x27u1koXYPZ3YKnRUFDVQerbGshjRU5nbmAwW";
+const exampleModal = document.getElementById('exampleModal')
 
 function toggleMensagemPersonalizada() {
   const tipo = document.getElementById("tipoMensagem").value;
@@ -43,6 +45,8 @@ function enviarWhats() {
 
   mensagem += `💵 *Valor a pagar:* R$ ${preco},00`;
 
+  // Envio para o Discord
+  // Criação do embed
   const embed = {
     title: "💌 Novo Pedido de Correio Elegante!",
     color: 0xff69b4,
@@ -118,7 +122,6 @@ function enviarWhatsDuvida() {
   window.open(urlDuvida, "_blank");
 }
 
-const exampleModal = document.getElementById('exampleModal')
 if (exampleModal) {
   exampleModal.addEventListener('show.bs.modal', event => {
     // Button that triggered the modal
