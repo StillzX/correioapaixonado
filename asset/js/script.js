@@ -7,6 +7,11 @@ function toggleMensagemPersonalizada() {
   document.getElementById("mensagemPersonalizadaDiv").style.display = tipo === "personalizada" ? "block" : "none";
 }
 
+function toggleAttentionTypeMenssage() {
+  const type = document.getElementById("tipoMensagemEstilo").value;
+  document.getElementById("warningTextMenssage").style.display = type === "nao" ? "block" : "none";
+}
+
 function enviarWhats() {
   const nomeRemetente = document.getElementById("nomeRemetente").value;
   const nomeAlvo = document.getElementById("nomeAlvo").value;
