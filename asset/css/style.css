@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -22,9 +28,8 @@ body {
     width: 35px;
 }
 
-.player-wrapper {
-    max-width: 800px;
-    margin: auto;
+.img-logo-footer {
+    width: 25px;
 }
 
 .btn-neon {
@@ -64,4 +69,21 @@ video {
     background-color: rgb(0, 196, 104) !important;
     color: white !important;
     box-shadow: 0 0 5px rgb(0, 182, 97), 0 0 10px rgb(0, 182, 97), 0 0 20px rgb(0, 182, 97);
+}
+
+footer {
+    width: 100%;
+}
+
+.list-important-links {
+    list-style-type: none;
+}
+
+.list-important-links > li > a {
+        text-decoration: none;
+        color: white;
+}
+
+.list-important-links > li > a:hover {
+        text-decoration: underline;
 }
