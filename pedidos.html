@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,62 +35,60 @@
     </header>
 
     <main class="container my-5">
-        <section>
-        </section>
 
 
         <section>
             <h2 class="text-magenta mb-4 text-center fw-bold">Envie seu Correio Elegante!</h2>
             <p class="lead text-center">Preencha as informações solicitadas para enviar-nos o seu pedido.</p>
+
             <form id="correioForm" class="row">
                 <div class="row">
                     <div class="col-md-6 mt-3">
                         <label for="nomeRemetente" class="form-label text-magenta">Seu nome:</label>
-                        <input type="text" class="form-control" id="nomeRemetente" required placeholder="Ex: João">
+                        <input type="text" class="form-control" name="nome" id="nomeRemetente" required placeholder="Ex: João">
                     </div>
     
                     <div class="col-md-6 mt-3">
                         <label for="nomeAlvo" class="form-label text-magenta">Nome do destinatário:</label>
-                        <input type="text" class="form-control" id="nomeAlvo" required placeholder="Ex: Natália">
+                        <input type="text" class="form-control" name="alvo" id="nomeAlvo" required placeholder="Ex: Natália">
                     </div>
     
                     <div class="col-md-6 mt-3">
                         <label for="sala" class="form-label text-magenta">Sala do destinatário:</label>
-                        <input type="text" class="form-control" id="sala" required placeholder="Ex: 3ºA">
+                        <input type="text" class="form-control" name="sala" id="sala" required placeholder="Ex: 3ºA">
                     </div>
     
                     <div class="col-md-6 mt-3">
                         <label class="form-label text-magenta">Você quer anonimato?</label>
-                        <select class="form-select" id="anonimato">
+                        <select class="form-select" name="anonimo" id="anonimato">
                             <option value="sim">Anônimo (+ R$3,00)</option>
                             <option value="nao">Sem anonimato</option>
                         </select>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label class="form-label text-magenta">Qual é o tipo de mensagem?</label>
-                        <div class="alert alert-danger" role="alert" style="display: none;" id="warningTextMenssage">
+                        <div class="alert alert-danger fw-bold" role="alert" style="display: none;" id="warningTextMenssage">
                             ATENÇÃO: Caso a mensagem personalizada enviada seja demasiadamente ofensiva, não iremos enviar a mensagem original. Além disso, não há reembolso do valor após o pagamento.
                         </div>
-                        <select class="form-select" id="tipoMensagemEstilo" onchange="toggleAttentionTypeMenssage()">
-                            <option value="sim">Lírica (Amor no ar)</option>
-                            <option value="nao">Satírica (Zueira total)</option>
+                        <select class="form-select" name="tipo" id="tipoMensagemEstilo" onchange="toggleAttentionTypeMenssage()">
+                            <option value="Lírica">Lírica (Amor no ar)</option>
+                            <option value="Satírica">Satírica (Zueira total)</option>
                         </select>
                     </div>
                       <div class="col-md-6 mt-3">
                         <label class="form-label text-magenta">Escolha o modo de escrita da mensagem: </label>
-                        <select class="form-select" id="tipoMensagem" onchange="toggleMensagemPersonalizada()">
+                        <select class="form-select" name="tipoMensagem" id="tipoMensagem" onchange="toggleMensagemPersonalizada()">
                             <option value="padrao">Mensagem feita pela equipe do Correio Elegante</option>
                             <option value="personalizada">Quero escrever minha mensagem</option>
                         </select>
                 </div>
-            </form>
 
                 <div class="col-12" id="mensagemPersonalizadaDiv" style="display: none;">
                     <label for="mensagemPersonalizada" class="form-label text-magenta mt-3">Escreva sua mensagem:</label>
-                    <textarea class="form-control" id="mensagemPersonalizada" rows="4" placeholder='Ex: "Oi, amor! 💌 Só queria lembrar que te amo mais do que pizza (e olha que isso é sério). Se você aguentou meus dramas até aqui, parabéns: já ganhou o prêmio de melhor namorado(a) do mundo. Feliz Dia dos Namorados! PS: desculpa por roubar o cobertor toda noite. 😅"'></textarea>
+                    <textarea class="form-control" name="mensagem" id="mensagemPersonalizada" rows="4" placeholder='Ex: "Oi, amor! 💌 Só queria lembrar que te amo mais do que pizza (e olha que isso é sério). Se você aguentou meus dramas até aqui, parabéns: já ganhou o prêmio de melhor namorado(a) do mundo. Feliz Dia dos Namorados! PS: desculpa por roubar o cobertor toda noite. 😅"'></textarea>
                 </div>
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-success btn-lg my-5 btn-neon-whats" onclick="enviarWhats()">
+                    <button type="submit" class="btn btn-success btn-lg my-5 btn-neon-whats">
                         Enviar via WhatsApp
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                             class="bi bi-whatsapp" viewBox="0 0 16 16">

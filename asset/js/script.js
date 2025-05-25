@@ -9,7 +9,7 @@ function toggleMensagemPersonalizada() {
 
 function toggleAttentionTypeMenssage() {
   const type = document.getElementById("tipoMensagemEstilo").value;
-  document.getElementById("warningTextMenssage").style.display = type === "nao" ? "block" : "none";
+  document.getElementById("warningTextMenssage").style.display = type === "Satírica" ? "block" : "none";
 }
 
 function enviarWhats() {
@@ -40,7 +40,7 @@ function enviarWhats() {
   mensagem += `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n`;
   mensagem += `📚 *Sala do alvo:* ${sala}\n`;
   mensagem += `🔐 Anonimato: ${anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO"}\n`;
-  mensagem += `🎭 Estilo da mensagem: ${tipoMensagemEstilo === "sim" ? "Lírica" : "Satírica"}\n\n`;
+  mensagem += `🎭 Estilo da mensagem: ${tipoMensagemEstilo}\n\n`;
 
   if (tipoMensagem === "personalizada") {
     mensagem += `📝 *Mensagem personalizada:*\n"${mensagemPers}"\n\n`;
@@ -141,3 +141,30 @@ if (exampleModal) {
     const modalBodyInput = exampleModal.getElementById('message-text')
   })
 }
+
+document.getElementById("correioForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  // Se estiver usando campos dinâmicos que não estão diretamente no <form>, adicione manualmente:
+  formData.append("mensagem", document.getElementById("mensagemPersonalizada").value);
+  formData.append("pagamento", 'pendente');
+
+  fetch("https://script.google.com/macros/s/AKfycbx5GfHwR6E7_4-uZjDmnYrk7j8rBVN2Wce9NpM2TsazTHvRP9L1GSVyJR63iSs8oqgBtA/exec", {
+    method: "POST",
+    body: formData
+  })
+    .then(response => response.text())
+    .then(result => {
+      alert("Mensagem enviada com sucesso!");
+      console.log(result);
+    })
+    .catch(error => {
+      alert("Erro ao enviar. Tente novamente.");
+      console.error("Erro ao enviar:", error);
+    });
+
+    enviarWhats();
+});
