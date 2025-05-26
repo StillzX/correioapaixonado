@@ -10,7 +10,7 @@ function toggleMensagemPersonalizada() {
   if (tipo === "personalizada") {
     divMsgPersonalizada.style.display = 'block';
   } else {
-    textArea.innerHTML = '';
+    textArea.value = '';
     divMsgPersonalizada.style.display = 'none';
   }
 }
@@ -45,7 +45,7 @@ function enviarWhats(id_pedido) {
 
   let mensagem = `💌 *Correio Elegante - Pedido de Mensagem!*\n\n`;
   mensagem += `Olá, sou *${nomeRemetente}* e gostaria de fazer um pedido!\n`;
-  mensagem += tipoMensagemEstilo === "Lírica" ? `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n` : `Estou animado e gostaria de zoar com meu(minha) amigo(a) *${nomeAlvo}*.\n\n`;
+  mensagem += tipoMensagemEstilo === "Lírica" ? `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n\n` : `Estou animado e gostaria de zoar com meu(minha) amigo(a) *${nomeAlvo}*.\n\n`;
   mensagem += `> *Informações do pedido*\n\n`
   mensagem += `🏷️ *ID do pedido:* _${id_pedido}_\n`;
   mensagem += `📚 *Sala do alvo:* _${sala}_\n`;
