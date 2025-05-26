@@ -1,10 +1,18 @@
 // declaração de variáveis
-const DISCORD_WEBHOOK_URL = "https://canary.discord.com/api/webhooks/1363574242859552778/PCf82cKOZdVKp9vknrRc4BEwjroJ7h7x27u1koXYPZ3YKnRUFDVQerbGshjRU5nbmAwW";
+// const DISCORD_WEBHOOK_URL = "https://canary.discord.com/api/webhooks/1363574242859552778/PCf82cKOZdVKp9vknrRc4BEwjroJ7h7x27u1koXYPZ3YKnRUFDVQerbGshjRU5nbmAwW";
 const exampleModal = document.getElementById('exampleModal')
 
 function toggleMensagemPersonalizada() {
   const tipo = document.getElementById("tipoMensagem").value;
-  document.getElementById("mensagemPersonalizadaDiv").style.display = tipo === "personalizada" ? "block" : "none";
+  const divMsgPersonalizada = document.getElementById("mensagemPersonalizadaDiv");
+  const textArea = document.getElementById("mensagemPersonalizada");
+
+  if (tipo === "personalizada") {
+    divMsgPersonalizada.style.display = 'block';
+  } else {
+    textArea.innerHTML = '';
+    divMsgPersonalizada.style.display = 'none';
+  }
 }
 
 function toggleAttentionTypeMenssage() {
@@ -12,7 +20,7 @@ function toggleAttentionTypeMenssage() {
   document.getElementById("warningTextMenssage").style.display = type === "Satírica" ? "block" : "none";
 }
 
-function enviarWhats() {
+function enviarWhats(id_pedido) {
   const nomeRemetente = document.getElementById("nomeRemetente").value;
   const nomeAlvo = document.getElementById("nomeAlvo").value;
   const sala = document.getElementById("sala").value;
@@ -37,10 +45,11 @@ function enviarWhats() {
 
   let mensagem = `💌 *Correio Elegante - Pedido de Mensagem!*\n\n`;
   mensagem += `Olá, sou *${nomeRemetente}* e gostaria de fazer um pedido!\n`;
-  mensagem += `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n`;
+  mensagem += tipoMensagemEstilo === "Lírica" ? `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n` : `Estou animado e gostaria de zoar com meu(minha) amigo(a) *${nomeAlvo}*.\n`;
+  mensagem += `🏷️ *ID do pedido:* ${id_pedido}`;
   mensagem += `📚 *Sala do alvo:* ${sala}\n`;
-  mensagem += `🔐 Anonimato: ${anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO"}\n`;
-  mensagem += `🎭 Estilo da mensagem: ${tipoMensagemEstilo}\n\n`;
+  mensagem += `🔐 *Anonimato:* ${anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO"}\n`;
+  mensagem += `🎭 *Estilo da mensagem:* ${tipoMensagemEstilo}\n\n`;
 
   if (tipoMensagem === "personalizada") {
     mensagem += `📝 *Mensagem personalizada:*\n"${mensagemPers}"\n\n`;
@@ -52,53 +61,53 @@ function enviarWhats() {
 
   // Envio para o Discord
   // Criação do embed
-  const embed = {
-    title: "💌 Novo Pedido de Correio Elegante!",
-    color: 0xff69b4,
-    fields: [
-      { name: "💁 Remetente", value: nomeRemetente, inline: true },
-      { name: "😍 Alvo", value: nomeAlvo, inline: true },
-      { name: "📚 Sala", value: sala, inline: true },
-      {
-        name: "🔐 Anonimato",
-        value: anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO",
-        inline: true
-      },
-      {
-        name: "🎭 Estilo",
-        value: tipoMensagemEstilo === "sim" ? "Lírica" : "Satírica",
-        inline: true
-      },
-      {
-        name: "📨 Tipo de Mensagem",
-        value: tipoMensagem === "personalizada" ? "Personalizada" : "Padrão",
-        inline: true
-      },
-      {
-        name: "💬 Mensagem",
-        value: tipoMensagem === "personalizada" ? mensagemPers : "Será feita pela equipe do Correio Elegante.",
-        inline: false
-      },
-      {
-        name: "💵 Valor a pagar",
-        value: `R$ ${preco},00`,
-        inline: true
-      }
-    ],
-    timestamp: new Date().toISOString()
-  };
+  // const embed = {
+  //   title: "💌 Novo Pedido de Correio Elegante!",
+  //   color: 0xff69b4,
+  //   fields: [
+  //     { name: "💁 Remetente", value: nomeRemetente, inline: true },
+  //     { name: "😍 Alvo", value: nomeAlvo, inline: true },
+  //     { name: "📚 Sala", value: sala, inline: true },
+  //     {
+  //       name: "🔐 Anonimato",
+  //       value: anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO",
+  //       inline: true
+  //     },
+  //     {
+  //       name: "🎭 Estilo",
+  //       value: tipoMensagemEstilo === "sim" ? "Lírica" : "Satírica",
+  //       inline: true
+  //     },
+  //     {
+  //       name: "📨 Tipo de Mensagem",
+  //       value: tipoMensagem === "personalizada" ? "Personalizada" : "Padrão",
+  //       inline: true
+  //     },
+  //     {
+  //       name: "💬 Mensagem",
+  //       value: tipoMensagem === "personalizada" ? mensagemPers : "Será feita pela equipe do Correio Elegante.",
+  //       inline: false
+  //     },
+  //     {
+  //       name: "💵 Valor a pagar",
+  //       value: `R$ ${preco},00`,
+  //       inline: true
+  //     }
+  //   ],
+  //   timestamp: new Date().toISOString()
+  // };
 
-  fetch(DISCORD_WEBHOOK_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ embeds: [embed] })
-  }).then(response => {
-    if (!response.ok) console.error("Erro ao enviar embed para o Discord");
-  }).catch(error => {
-    console.error("Erro de rede ao enviar para o Discord", error);
-  });
+  // fetch(DISCORD_WEBHOOK_URL, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({ embeds: [embed] })
+  // }).then(response => {
+  //   if (!response.ok) console.error("Erro ao enviar embed para o Discord");
+  // }).catch(error => {
+  //   console.error("Erro de rede ao enviar para o Discord", error);
+  // });
 
   const enviarWhats = "5567998365507";
   const url = `https://wa.me/${enviarWhats}?text=${encodeURIComponent(mensagem)}`;
@@ -127,6 +136,18 @@ function enviarWhatsDuvida() {
   window.open(urlDuvida, "_blank");
 }
 
+function gerarId(length) {
+  const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+  let resultadoID = "";
+
+  for (let i = 0; i < length; i++) {
+    const indice = Math.floor(Math.random() * caracteres.length);
+    resultadoID += caracteres.charAt(indice);
+  }
+
+  return resultadoID;
+}
+
 if (exampleModal) {
   exampleModal.addEventListener('show.bs.modal', event => {
     // Button that triggered the modal
@@ -147,10 +168,12 @@ document.getElementById("correioForm").addEventListener("submit", function (e) {
 
   const form = e.target;
   const formData = new FormData(form);
+  const IDPedido = gerarId(10);
 
   // Se estiver usando campos dinâmicos que não estão diretamente no <form>, adicione manualmente:
-  formData.append("mensagem", document.getElementById("mensagemPersonalizada").value);
+  formData.append("mensagem", document.getElementById("mensagemPersonalizada").value ? document.getElementById("mensagemPersonalizada").value : "Mensagem feita pela equipe do Correio Elegante");
   formData.append("pagamento", 'pendente');
+  formData.append("id_pedido", IDPedido);
 
   fetch("https://script.google.com/macros/s/AKfycbx5GfHwR6E7_4-uZjDmnYrk7j8rBVN2Wce9NpM2TsazTHvRP9L1GSVyJR63iSs8oqgBtA/exec", {
     method: "POST",
@@ -166,5 +189,5 @@ document.getElementById("correioForm").addEventListener("submit", function (e) {
       console.error("Erro ao enviar:", error);
     });
 
-    enviarWhats();
+    enviarWhats(IDPedido);
 });
