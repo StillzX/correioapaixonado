@@ -45,16 +45,17 @@ function enviarWhats(id_pedido) {
 
   let mensagem = `💌 *Correio Elegante - Pedido de Mensagem!*\n\n`;
   mensagem += `Olá, sou *${nomeRemetente}* e gostaria de fazer um pedido!\n`;
-  mensagem += tipoMensagemEstilo === "Lírica" ? `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n` : `Estou animado e gostaria de zoar com meu(minha) amigo(a) *${nomeAlvo}*.\n`;
-  mensagem += `🏷️ *ID do pedido:* ${id_pedido}`;
-  mensagem += `📚 *Sala do alvo:* ${sala}\n`;
-  mensagem += `🔐 *Anonimato:* ${anonimato === "sim" ? "SIM (+ R$3,00)" : "NÃO"}\n`;
-  mensagem += `🎭 *Estilo da mensagem:* ${tipoMensagemEstilo}\n\n`;
+  mensagem += tipoMensagemEstilo === "Lírica" ? `Estou muito apaixonado(a) por *${nomeAlvo}* e gostaria de revelar meu amor.\n` : `Estou animado e gostaria de zoar com meu(minha) amigo(a) *${nomeAlvo}*.\n\n`;
+  mensagem += `> *Informações do pedido*\n\n`
+  mensagem += `🏷️ *ID do pedido:* _${id_pedido}_\n`;
+  mensagem += `📚 *Sala do alvo:* _${sala}_\n`;
+  mensagem += `🔐 *Anonimato:* ${anonimato === "sim" ? "_SIM (+ R$3,00)_" : "_NÃO_"}\n`;
+  mensagem += `🎭 *Estilo da mensagem:* _${tipoMensagemEstilo}_\n\n`;
 
   if (tipoMensagem === "personalizada") {
-    mensagem += `📝 *Mensagem personalizada:*\n"${mensagemPers}"\n\n`;
+    mensagem += `📝 *Mensagem personalizada:*\n"_${mensagemPers}_"\n\n`;
   } else {
-    mensagem += `✉️ Mensagem será feita pela equipe do Correio Elegante.\n\n`;
+    mensagem += "`✉️ Mensagem será feita pela equipe do Correio Elegante`.\n\n";
   }
 
   mensagem += `💵 *Valor a pagar:* R$ ${preco},00`;
